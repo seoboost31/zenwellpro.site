@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZenWell Pro — Mindful Living, Made Daily</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --moss:#3F4B3B;
+    --cream:#F1ECE0;
+    --rose:#C98474;
+    --gold:#B99A5B;
+    --ink:#26291F;
+    --line: rgba(38,41,31,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--cream);color:var(--ink);font-family:'Work Sans',sans-serif;font-weight:300;overflow-x:hidden;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 32px;}
+
+  header{position:sticky;top:0;z-index:50;background:rgba(241,236,224,0.92);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);}
+  nav{display:flex;align-items:center;justify-content:space-between;padding:24px 32px;max-width:1160px;margin:0 auto;}
+  .logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:600;letter-spacing:0.01em;}
+  .logo em{font-style:italic;color:var(--rose);}
+  .nav-links{display:flex;gap:34px;font-size:0.85rem;letter-spacing:0.03em;}
+  .nav-cta{border:1px solid var(--ink);padding:9px 20px;border-radius:100px;font-size:0.82rem;}
+
+  /* HERO with breathing circle */
+  .hero{position:relative;padding:90px 32px 60px;max-width:1160px;margin:0 auto;display:grid;grid-template-columns:1fr 380px;gap:40px;align-items:center;}
+  .hero-eyebrow{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--moss);margin-bottom:22px;}
+  .hero h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2.6rem,5.6vw,4.6rem);line-height:1.06;letter-spacing:-0.01em;}
+  .hero h1 em{font-style:italic;color:var(--rose);}
+  .hero p{margin-top:26px;font-size:1.08rem;line-height:1.65;color:rgba(38,41,31,0.72);max-width:460px;}
+  .hero-actions{margin-top:36px;display:flex;gap:16px;align-items:center;}
+  .btn-primary{background:var(--moss);color:var(--cream);padding:15px 30px;border-radius:100px;font-size:0.9rem;letter-spacing:0.02em;}
+  .btn-text{font-size:0.88rem;border-bottom:1px solid var(--ink);padding-bottom:2px;}
+
+  .breathe-wrap{display:flex;align-items:center;justify-content:center;position:relative;height:380px;}
+  .breathe-ring{
+    position:absolute;border-radius:50%;border:1px solid var(--moss);opacity:0.35;
+  }
+  .r1{width:380px;height:380px;animation:breathe 8s ease-in-out infinite;}
+  .r2{width:280px;height:280px;animation:breathe 8s ease-in-out infinite 0.4s;}
+  .r3{width:190px;height:190px;background:var(--rose);opacity:0.85;display:flex;align-items:center;justify-content:center;animation:breathe 8s ease-in-out infinite 0.8s;}
+  .r3 span{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--cream);font-size:1.1rem;text-align:center;padding:0 20px;}
+  @keyframes breathe{
+    0%,100%{transform:scale(0.92);}
+    50%{transform:scale(1.05);}
+  }
+
+  /* STRIP */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:20px 32px;text-align:center;}
+  .strip span{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:var(--moss);margin:0 22px;}
+
+  /* PILLARS */
+  .section{padding:100px 32px;max-width:1160px;margin:0 auto;}
+  .section-head{max-width:600px;margin:0 auto 64px;text-align:center;}
+  .section-head .eyebrow{font-size:0.78rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--rose);margin-bottom:14px;}
+  .section-head h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2rem,4vw,2.8rem);}
+  .section-head h2 em{font-style:italic;color:var(--moss);}
+  .section-head p{margin-top:16px;color:rgba(38,41,31,0.65);font-size:1rem;line-height:1.6;}
+
+  .pillars{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);}
+  .pillar{background:var(--cream);padding:44px 34px;}
+  .pillar .icon{width:44px;height:44px;border-radius:50%;background:var(--moss);margin-bottom:22px;}
+  .pillar h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.5rem;margin-bottom:10px;}
+  .pillar p{font-size:0.92rem;line-height:1.6;color:rgba(38,41,31,0.68);}
+
+  /* PROGRAM - asymmetric */
+  .program{background:var(--moss);color:var(--cream);}
+  .program .section-head p{color:rgba(241,236,224,0.68);}
+  .program .section-head .eyebrow{color:var(--gold);}
+  .program-list{display:flex;flex-direction:column;}
+  .program-item{
+    display:grid;grid-template-columns:120px 1fr 140px;align-items:center;
+    padding:28px 0;border-bottom:1px solid rgba(241,236,224,0.15);gap:20px;
+  }
+  .program-item:first-child{border-top:1px solid rgba(241,236,224,0.15);}
+  .program-time{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.1rem;color:var(--gold);}
+  .program-name{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.5rem;}
+  .program-tag{font-size:0.82rem;color:rgba(241,236,224,0.6);text-align:right;}
+
+  /* QUOTE */
+  .quote-section{text-align:center;padding:110px 32px;max-width:800px;margin:0 auto;}
+  .quote-section blockquote{
+    font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;
+    font-size:clamp(1.6rem,3.4vw,2.4rem);line-height:1.4;color:var(--ink);
+  }
+  .quote-section cite{display:block;margin-top:24px;font-style:normal;font-size:0.85rem;color:rgba(38,41,31,0.6);letter-spacing:0.03em;}
+
+  /* CTA */
+  .cta{text-align:center;padding:100px 32px 130px;max-width:640px;margin:0 auto;}
+  .cta h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(2rem,4.4vw,3rem);}
+  .cta h2 em{font-style:italic;color:var(--rose);}
+  .cta p{margin:20px 0 34px;color:rgba(38,41,31,0.65);}
+
+  footer{border-top:1px solid var(--line);padding:44px 32px;}
+  .footer-grid{max-width:1160px;margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;align-items:center;}
+  .footer-links{display:flex;gap:26px;font-size:0.85rem;color:rgba(38,41,31,0.65);}
+  .footer-copy{font-size:0.78rem;color:rgba(38,41,31,0.45);}
+
+  @media(max-width:860px){
+    .hero{grid-template-columns:1fr;}
+    .breathe-wrap{height:260px;}
+    .r1{width:240px;height:240px;} .r2{width:180px;height:180px;} .r3{width:120px;height:120px;}
+    .nav-links{display:none;}
+    .pillars{grid-template-columns:1fr;}
+    .program-item{grid-template-columns:1fr;text-align:left;gap:4px;}
+    .program-tag{text-align:left;}
+  }
+  @media (prefers-reduced-motion: reduce){ .r1,.r2,.r3{animation:none;} html{scroll-behavior:auto;} }
+  :focus-visible{outline:2px solid var(--rose);outline-offset:3px;}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Zen<em>Well</em> Pro</div>
+    <div class="nav-links">
+      <a href="#pillars">Practice</a>
+      <a href="#program">Program</a>
+      <a href="#story">Story</a>
+    </div>
+    <a href="#cta" class="nav-cta">Begin your practice</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div>
+    <div class="hero-eyebrow">Guided wellness · 1:1 & group coaching</div>
+    <h1>Slow down, on purpose. <em>Every single day.</em></h1>
+    <p>ZenWell Pro pairs you with a certified mindfulness coach and a daily practice built around your actual life — not another app streak you'll abandon in a week.</p>
+    <div class="hero-actions">
+      <a href="#cta" class="btn-primary">Start your first session</a>
+      <a href="#pillars" class="btn-text">How it works</a>
+    </div>
+  </div>
+  <div class="breathe-wrap">
+    <div class="breathe-ring r1"></div>
+    <div class="breathe-ring r2"></div>
+    <div class="breathe-ring r3"><span>breathe in, breathe out</span></div>
+  </div>
+</section>
+
+<div class="strip">
+  <span>4.9 average rating</span><span>2,300+ members</span><span>14 certified coaches</span>
+</div>
+
+<section class="section" id="pillars">
+  <div class="section-head">
+    <div class="eyebrow">The Practice</div>
+    <h2>Three pillars, held <em>together</em></h2>
+    <p>Wellness that lasts isn't one habit — it's a small, sustainable system. We build yours around these three.</p>
+  </div>
+  <div class="pillars">
+    <div class="pillar">
+      <div class="icon"></div>
+      <h3>Breath & stillness</h3>
+      <p>Daily guided breathwork and meditation, 8–20 minutes, designed to fit before your first coffee.</p>
+    </div>
+    <div class="pillar">
+      <div class="icon" style="background:var(--rose);"></div>
+      <h3>Movement</h3>
+      <p>Gentle mobility and restorative flows that meet your body where it is, not where an influencer's is.</p>
+    </div>
+    <div class="pillar">
+      <div class="icon" style="background:var(--gold);"></div>
+      <h3>Reflection</h3>
+      <p>Weekly 1:1 check-ins with your coach to notice patterns and adjust the practice as life changes.</p>
+    </div>
+  </div>
+</section>
+
+<section class="program" id="program">
+  <div class="section">
+    <div class="section-head">
+      <div class="eyebrow">A Typical Week</div>
+      <h2>Structured enough to <em>stick</em></h2>
+      <p>No rigid schedule — a rhythm that holds you gently, with room to breathe.</p>
+    </div>
+    <div class="program-list">
+      <div class="program-item"><div class="program-time">Mon · AM</div><div class="program-name">Morning breathwork</div><div class="program-tag">10 min · guided</div></div>
+      <div class="program-item"><div class="program-time">Wed · PM</div><div class="program-name">Restorative movement</div><div class="program-tag">25 min · guided</div></div>
+      <div class="program-item"><div class="program-time">Fri · AM</div><div class="program-name">1:1 coaching check-in</div><div class="program-tag">30 min · live</div></div>
+      <div class="program-item"><div class="program-time">Sun · PM</div><div class="program-name">Weekly reflection</div><div class="program-tag">15 min · journal</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-section" id="story">
+  <blockquote>"I'd tried five meditation apps before this. The difference is having a real coach who noticed when I was avoiding the practice, not just a streak counter."</blockquote>
+  <cite>— Hana R., member since 2023</cite>
+</section>
+
+<section class="cta" id="cta">
+  <h2>Your first session is <em>on us</em>.</h2>
+  <p>Twenty minutes with a coach, no commitment. Just space to figure out what you actually need.</p>
+  <a href="mailto:hello@zenwellpro.site" class="btn-primary">Book your free session</a>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="logo">Zen<em>Well</em> Pro</div>
+    <div class="footer-links">
+      <a href="#pillars">Practice</a>
+      <a href="#program">Program</a>
+      <a href="#story">Story</a>
+    </div>
+    <div class="footer-copy">© 2026 ZenWell Pro</div>
+  </div>
+</footer>
+
+</body>
+</html>
